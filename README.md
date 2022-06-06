@@ -1,4 +1,4 @@
-# Mercadolibre-Challenge
+# Mercadolibre Mobile Challenge.
 
 El propósito del siguiente Desarrollo es desarrollar una App, nativa en Android, que utilice las APIs de Mercadolibre para permitirle a un usuario ver los detalles de un producto.
 
