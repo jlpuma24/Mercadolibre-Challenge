@@ -4,8 +4,11 @@ import com.melichallenge.domain.model.Product
 import com.melichallenge.domain.model.ProductDescription
 import com.melichallenge.domain.model.ReviewsResponse
 import com.melichallenge.domain.network.ProductDetailApiService
+import com.melichallenge.domain.network.exceptions.ApiErrorException
+import com.melichallenge.domain.network.exceptions.NoConnectivityException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import okio.IOException
 import org.koin.core.component.KoinComponent
 
 class ProductDetailRepositoryImpl(private val apiService: ProductDetailApiService) :
@@ -18,10 +21,10 @@ class ProductDetailRepositoryImpl(private val apiService: ProductDetailApiServic
                 if (response.isSuccessful) {
                     return@withContext response.body()
                 } else {
-                    throw Exception()
+                    throw ApiErrorException()
                 }
-            } catch (e: Exception) {
-                throw e
+            } catch (e: IOException) {
+                throw NoConnectivityException()
             }
         }
 
@@ -32,10 +35,10 @@ class ProductDetailRepositoryImpl(private val apiService: ProductDetailApiServic
                 if (response.isSuccessful) {
                     return@withContext response.body()
                 } else {
-                    throw Exception()
+                    throw ApiErrorException()
                 }
-            } catch (e: Exception) {
-                throw e
+            } catch (e: IOException) {
+                throw NoConnectivityException()
             }
         }
 
@@ -45,10 +48,10 @@ class ProductDetailRepositoryImpl(private val apiService: ProductDetailApiServic
             if (response.isSuccessful) {
                 return@withContext response.body()
             } else {
-                throw Exception()
+                throw ApiErrorException()
             }
-        } catch (e: Exception) {
-            throw e
+        }  catch (e: IOException) {
+            throw NoConnectivityException()
         }
     }
 }

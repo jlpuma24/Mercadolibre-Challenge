@@ -18,39 +18,29 @@ class ProductDetailViewModel(
     private val onProductDetailActions: MutableLiveData<ProductDetailActions> =
         MutableLiveData<ProductDetailActions>()
 
-    fun showLoader() {
-        onProductDetailActions.postValue(ProductDetailActions.ShowLoader)
-    }
-
-    fun hideLoader() {
-        onProductDetailActions.postValue(ProductDetailActions.HideLoader)
-    }
-
     fun updateGalleryCounter(counterCopy: String) {
-        onProductDetailActions.postValue(ProductDetailActions.OnCounterGalleryPagerUpdated(counterCopy))
+        onProductDetailActions.postValue(
+            ProductDetailActions.OnCounterGalleryPagerUpdated(
+                counterCopy
+            )
+        )
     }
 
     fun getProductDescription(productId: String) = launch {
         onProductDetailActions.postValue(
-            ProductDetailActions.OnProductDescriptionReceived(
-                getProductDescriptionUseCase.execute(productId)
-            )
+            getProductDescriptionUseCase.execute(productId)
         )
     }
 
     fun getProductReviews(productId: String) = launch {
         onProductDetailActions.postValue(
-            ProductDetailActions.OnProductReviewsReceived(
-                getProductReviewsUseCase.execute(productId)
-            )
+            getProductReviewsUseCase.execute(productId)
         )
     }
 
     fun getProductDetail(productId: String) = launch {
         onProductDetailActions.postValue(
-            ProductDetailActions.OnProductDetailReceived(
-                getProductDetailUseCase.execute(productId)
-            )
+            getProductDetailUseCase.execute(productId)
         )
     }
 

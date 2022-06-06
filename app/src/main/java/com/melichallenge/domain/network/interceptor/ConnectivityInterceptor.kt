@@ -3,6 +3,7 @@ package com.melichallenge.domain.network.interceptor
 import android.content.Context
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
+import com.melichallenge.domain.network.exceptions.NoConnectivityException
 import okhttp3.Interceptor
 import okhttp3.Response
 import java.io.IOException
@@ -25,5 +26,3 @@ class ConnectivityInterceptor(context: Context) : Interceptor{
         } else false
     }
 }
-
-class NoConnectivityException: IOException()

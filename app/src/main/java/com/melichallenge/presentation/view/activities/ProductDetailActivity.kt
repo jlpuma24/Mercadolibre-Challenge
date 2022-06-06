@@ -2,12 +2,16 @@ package com.melichallenge.presentation.view.activities
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.snackbar.Snackbar
+import com.melichallenge.R
 import com.melichallenge.databinding.ActivityProductDetailBinding
 import com.melichallenge.domain.model.Product
 import com.melichallenge.domain.model.ProductDescription
 import com.melichallenge.domain.model.ReviewsResponse
 import com.melichallenge.presentation.view.actions.ProductDetailActions
-import com.melichallenge.presentation.view.extensions.*
+import com.melichallenge.presentation.view.extensions.setProductInfo
+import com.melichallenge.presentation.view.extensions.setReviewsInfo
+import com.melichallenge.presentation.view.extensions.setDescriptionInfo
 import com.melichallenge.presentation.view.viewmodels.ProductDetailViewModel
 import org.koin.android.ext.android.inject
 
@@ -55,6 +59,21 @@ class ProductDetailActivity : AppCompatActivity() {
 
                 if (action is ProductDetailActions.OnCounterGalleryPagerUpdated) {
                     updateGalleryCounter(action.copy)
+                }
+
+                if (action is ProductDetailActions.OnProductDescriptionError) {
+                    Snackbar.make(binding.root, getString(R.string.error_product_description), Snackbar.LENGTH_LONG)
+                        .show()
+                }
+
+                if (action is ProductDetailActions.OnProductDetailError) {
+                    Snackbar.make(binding.root, getString(R.string.empty_product_detail), Snackbar.LENGTH_LONG)
+                        .show()
+                }
+
+                if (action is ProductDetailActions.OnProductReviewsError) {
+                    Snackbar.make(binding.root, getString(R.string.error_product_reviews), Snackbar.LENGTH_LONG)
+                        .show()
                 }
             }
     }

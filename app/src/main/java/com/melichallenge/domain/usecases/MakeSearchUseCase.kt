@@ -10,15 +10,19 @@ class MakeSearchUseCase: KoinComponent {
     private val repository: SearchItemsRepository by inject()
 
     suspend fun execute(searchTerm: String): SearchProductsActions {
-        return if (searchTerm.isNotEmpty()) {
-            val searchResults = repository.getProductsBySearchTerm(searchTerm)
-            if (!searchResults?.results.isNullOrEmpty()) {
-                SearchProductsActions.OnSearchResult(searchResults)
+        return try {
+            if (searchTerm.isNotEmpty()) {
+                val searchResults = repository.getProductsBySearchTerm(searchTerm)
+                if (!searchResults?.results.isNullOrEmpty()) {
+                    SearchProductsActions.OnSearchResult(searchResults)
+                } else {
+                    SearchProductsActions.OnEmptySearchResult
+                }
             } else {
-                SearchProductsActions.OnEmptySearchResult
+                SearchProductsActions.OnEmptySearchTerm
             }
-        } else {
-            SearchProductsActions.OnEmptySearchTerm
+        } catch (e: Exception) {
+            SearchProductsActions.OnSearchResultError
         }
     }
 }

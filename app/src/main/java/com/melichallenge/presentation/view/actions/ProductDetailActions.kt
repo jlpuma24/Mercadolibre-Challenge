@@ -11,6 +11,5 @@ sealed class ProductDetailActions {
     class OnCounterGalleryPagerUpdated(val copy: String): ProductDetailActions()
     object OnProductDescriptionError: ProductDetailActions()
     object OnProductReviewsError: ProductDetailActions()
-    object ShowLoader: ProductDetailActions()
-    object HideLoader: ProductDetailActions()
+    object OnProductDetailError: ProductDetailActions()
 }

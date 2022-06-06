@@ -47,6 +47,20 @@ class SearchViewModelTest {
 
     @ExperimentalCoroutinesApi
     @Test
+    fun `GIVEN any search term WHEN make search is called and return exception provided by API THEN return a OnSearchResultError action`() =
+        runBlockingTest {
+            val expectedSearch = "any"
+            coEvery {
+                makeSearchUseCase.execute(any())
+            } returns SearchProductsActions.OnSearchResultError
+
+            searchViewModel.makeSearch(expectedSearch)
+            val searchAction = searchViewModel.getSearchProductActions().value
+            assert(searchAction is SearchProductsActions.OnSearchResultError)
+        }
+
+    @ExperimentalCoroutinesApi
+    @Test
     fun `GIVEN any search term WHEN make search is called and return success with data (at least one element) THEN return a OnSearchResult action`() =
         runBlockingTest {
             val expectedSearch = "any"

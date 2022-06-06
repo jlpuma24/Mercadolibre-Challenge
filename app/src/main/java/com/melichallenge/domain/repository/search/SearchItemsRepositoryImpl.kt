@@ -2,9 +2,12 @@ package com.melichallenge.domain.repository.search
 
 import com.melichallenge.domain.model.SearchResult
 import com.melichallenge.domain.network.SearchApiService
+import com.melichallenge.domain.network.exceptions.ApiErrorException
+import com.melichallenge.domain.network.exceptions.NoConnectivityException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import org.koin.core.component.KoinComponent
+import java.io.IOException
 
 class SearchItemsRepositoryImpl(private val apiService: SearchApiService) : SearchItemsRepository, KoinComponent {
 
@@ -15,10 +18,10 @@ class SearchItemsRepositoryImpl(private val apiService: SearchApiService) : Sear
                 if (response.isSuccessful) {
                     return@withContext response.body()
                 } else {
-                    throw Exception()
+                    throw ApiErrorException()
                 }
-            } catch (e: Exception) {
-                throw e
+            } catch (e: IOException) {
+                throw NoConnectivityException()
             }
         }
 }

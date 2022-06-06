@@ -57,6 +57,11 @@ class SearchActivity : AppCompatActivity() {
                 Snackbar.make(binding.root, getString(R.string.empty_alert), Snackbar.LENGTH_LONG)
                     .show()
             }
+
+            if (action is SearchProductsActions.OnSearchResultError) {
+                Snackbar.make(binding.root, getString(R.string.term_search_error), Snackbar.LENGTH_LONG)
+                    .show()
+            }
         }
     }
 

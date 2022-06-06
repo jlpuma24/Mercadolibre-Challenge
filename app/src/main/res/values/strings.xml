@@ -4,7 +4,11 @@
     <string name="term_search_instructions">Buscar productos, marcas y más:</string>
     <string name="term_search_placeholder">Ej: Celular samsung, nokia, etc.</string>
     <string name="search_button">Realizar búsqueda</string>
+    <string name="term_search_error">Existió un error al momento de realizar la búsqueda, por favor intenta nuevamente</string>
     <string name="empty_alert">Por favor indica un valor para tu búsqueda</string>
+    <string name="error_product_description">Ocurrió un error al momento de obtener la descripción del producto.</string>
+    <string name="error_product_reviews">Ocurrió un error al momento de obtener los reviews del producto.</string>
+    <string name="empty_product_detail">Ocurrió un error al momento de obtener el detalle del producto.</string>
     <string name="money_format">$ %s</string>
     <string name="installments_format">En %1$sx $ %2$s</string>
     <string name="free_shipping">Envío gratis</string>
