@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_condition_selled_items"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin"
+            android:layout_marginTop="@dimen/default_margin"
+            android:textColor="@color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Nuevo | 5134 vendidos" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_product_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:maxLines="2"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sixteen_sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_condition_selled_items"
+            app:layout_constraintTop_toBottomOf="@+id/tv_condition_selled_items"
+            tools:text="Nokia 106 (2018) 4 MB gris oscuro 4 MB RAM" />
+
+        <androidx.appcompat.widget.AppCompatRatingBar
+            android:id="@+id/rb_opinions"
+            style="@style/RatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:numStars="5"
+            android:progressBackgroundTint="@color/blue"
+            android:progressTint="@color/blue"
+            android:secondaryProgressTint="@color/black"
+            app:layout_constraintStart_toStartOf="@+id/tv_product_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_product_title"
+            tools:rating="4.7" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_opinions_counts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:textColor="@color/light_grey"
+            app:layout_constraintBottom_toBottomOf="@+id/rb_opinions"
+            app:layout_constraintStart_toEndOf="@+id/rb_opinions"
+            tools:text="49 opiniones" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_images_carousel"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/carousel_height"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rb_opinions" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_images_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/vp_images_carousel"
+            app:layout_constraintTop_toTopOf="@+id/vp_images_carousel"
+            tools:text="1/1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_original_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:textColor="@color/light_grey"
+            android:textSize="@dimen/twelve_sp"
+            android:visibility="invisible"
+            app:layout_constraintStart_toStartOf="@+id/vp_images_carousel"
+            app:layout_constraintTop_toBottomOf="@+id/rv_variants"
+            tools:text="$ 1.499.900" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_current_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:textColor="@color/black"
+            android:textSize="@dimen/twenty_sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_original_price"
+            app:layout_constraintTop_toBottomOf="@+id/tv_original_price"
+            tools:text="$ 1.499.900" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_percentage_off"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/default_margin"
+            android:textColor="@color/green"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_current_price"
+            app:layout_constraintStart_toEndOf="@+id/tv_current_price"
+            app:layout_constraintTop_toTopOf="@+id/tv_current_price"
+            tools:text="8% OFF" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_variants"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/default_margin"
+            app:layout_constraintEnd_toEndOf="@+id/vp_images_carousel"
+            app:layout_constraintStart_toStartOf="@+id/vp_images_carousel"
+            app:layout_constraintTop_toBottomOf="@+id/vp_images_carousel" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_description_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:text="@string/description_header"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sixteen_sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tv_current_price"
+            app:layout_constraintTop_toBottomOf="@+id/tv_location_value" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_description_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:textColor="@color/black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_description_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description_title"
+            tools:text="Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta)" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_seller_information_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:text="@string/information_about_seller"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sixteen_sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tv_current_price"
+            app:layout_constraintTop_toBottomOf="@+id/tv_current_price" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_location_header"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:text="@string/location_header"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/tv_seller_information_header"
+            app:layout_constraintTop_toBottomOf="@+id/tv_seller_information_header" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_location_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:textColor="@color/light_grey"
+            android:textSize="@dimen/twelve_sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_location_header"
+            app:layout_constraintTop_toBottomOf="@+id/tv_location_header" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_opinions_about_product"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/sixteen_sp"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_description_content"
+            app:layout_constraintTop_toBottomOf="@+id/tv_description_content"
+            tools:text="Opiniones sobre Nokia pocophone 3g" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_opinions_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/thirty_dp"
+            android:textColor="@color/black"
+            android:textSize="@dimen/forty_sp"
+            app:layout_constraintStart_toStartOf="@+id/tv_opinions_about_product"
+            app:layout_constraintTop_toBottomOf="@+id/tv_opinions_about_product"
+            tools:text="4.8" />
+
+        <androidx.appcompat.widget.AppCompatRatingBar
+            android:id="@+id/rb_opinions_counter"
+            style="@style/RatingBar"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:numStars="5"
+            android:progressBackgroundTint="@color/blue"
+            android:progressTint="@color/blue"
+            android:secondaryProgressTint="@color/black"
+            app:layout_constraintBottom_toTopOf="@+id/tv_average_reviews"
+            app:layout_constraintStart_toEndOf="@+id/tv_opinions_rating"
+            app:layout_constraintTop_toTopOf="@+id/tv_opinions_rating" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_average_reviews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_opinions_rating"
+            app:layout_constraintStart_toStartOf="@+id/rb_opinions_counter"
+            tools:text="Promedio entre 49 opiniones" />
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tl_opinions_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginTop="@dimen/medium_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            android:background="@color/white"
+            app:tabTextAppearance="@style/TextAppearanceTabOpinions"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_opinions_rating"
+            app:tabIconTint="@color/blue"
+            app:tabIndicatorColor="@color/blue"
+            app:tabSelectedTextColor="@color/blue"
+            app:tabTextColor="@color/black"
+            tools:ignore="SpeakableTextPresentCheck" />
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp_opinions"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/carousel_height"
+            android:layout_marginStart="@dimen/medium_margin"
+            android:layout_marginEnd="@dimen/medium_margin"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tl_opinions_type" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

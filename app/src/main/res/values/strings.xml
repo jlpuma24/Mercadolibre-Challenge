@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">MeliChallenge</string>
+    <string name="search_results">Resultados de la búsqueda:</string>
+    <string name="term_search_instructions">Buscar productos, marcas y más:</string>
+    <string name="term_search_placeholder">Ej: Celular samsung, nokia, etc.</string>
+    <string name="search_button">Realizar búsqueda</string>
+    <string name="empty_alert">Por favor indica un valor para tu búsqueda</string>
+    <string name="money_format">$ %s</string>
+    <string name="installments_format">En %1$sx $ %2$s</string>
+    <string name="free_shipping">Envío gratis</string>
+    <string name="detail_product_header_format">%1$s | %2$s vendidos</string>
+    <string name="detail_product_opinions_format">%1$s opiniones</string>
+    <string name="detail_product_discount_format">%s %% OFF</string>
+    <string name="description_header">Descripción</string>
+    <string name="information_about_seller">Información sobre el vendedor</string>
+    <string name="location_header">Ubicación</string>
+    <string name="detail_product_location_format">%1$s, %2$s</string>
+    <string name="detail_product_opinions_title_format">Opiniones sobre %s</string>
+    <string name="detail_product_opinions_average_format">Promedio entre %s opiniones</string>
+    <string name="empty_state_reviews">¡Nada por aqui!\n¡Excelente! Este producto no tiene malas opiniones</string>
+</resources>

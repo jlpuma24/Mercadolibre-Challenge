@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/medium_margin"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white">
+
+    <androidx.appcompat.widget.AppCompatRatingBar
+        android:id="@+id/rb_opinions"
+        style="@style/RatingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/medium_margin"
+        android:layout_marginStart="@dimen/medium_margin"
+        android:numStars="5"
+        android:progressBackgroundTint="@color/blue"
+        android:progressTint="@color/blue"
+        android:secondaryProgressTint="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:rating="4.7" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_review_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Excelente"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/medium_margin"
+        app:layout_constraintStart_toStartOf="@+id/rb_opinions"
+        app:layout_constraintTop_toBottomOf="@+id/rb_opinions" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_review_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/medium_margin"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/medium_margin"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_review_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_review_title"
+        tools:text="Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta)" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_dislike_comments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/dislike"
+        android:drawablePadding="@dimen/medium_margin"
+        android:textColor="@color/black"
+        android:layout_marginStart="@dimen/default_margin"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_like_comments"
+        app:layout_constraintStart_toEndOf="@+id/tv_like_comments"
+        app:layout_constraintTop_toTopOf="@+id/tv_like_comments"
+        tools:text="1" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_like_comments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/like"
+        android:drawablePadding="@dimen/medium_margin"
+        android:textColor="@color/black"
+        android:layout_marginTop="@dimen/medium_margin"
+        app:layout_constraintStart_toStartOf="@+id/tv_review_text"
+        app:layout_constraintTop_toBottomOf="@+id/tv_review_text"
+        tools:text="1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
